@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7F7F7F7"
     tools:context=".SignUpActivity">
     <ImageView
         android:id="@+id/imageView"
@@ -164,7 +165,7 @@
             android:text="Already have an account?" />
 
         <TextView
-            android:id="@+id/tvSignUp"
+            android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
