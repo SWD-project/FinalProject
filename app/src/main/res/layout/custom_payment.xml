@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@tools:sample/avatars"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="50dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/name_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="payment method"
+        app:layout_constraintBottom_toBottomOf="@+id/image_payment"
+        app:layout_constraintStart_toEndOf="@+id/image_payment"
+        app:layout_constraintTop_toTopOf="@+id/image_payment" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_payment"
+        app:layout_constraintStart_toEndOf="@+id/name_payment"
+        app:layout_constraintTop_toTopOf="@+id/image_payment"
+        app:layout_constraintVertical_bias="0.551" />
+</androidx.constraintlayout.widget.ConstraintLayout>
