@@ -13,8 +13,6 @@ import com.example.finalproject.api.Api;
 import com.example.finalproject.model.UserRegistrationRequest;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
 
-            if (passwordsDoNotMatch(password, confirmPassword)) {
+            if (!passwordsMatch(password, confirmPassword)) {
                 displayToast("Passwords do not match");
                 return;
             }
@@ -55,8 +53,8 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private boolean passwordsDoNotMatch(String password, String confirmPassword) {
-        return false;
+    private boolean passwordsMatch(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
     }
 
 
@@ -69,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 var user = task.getResult().getUser();
                 String uuid = user.getUid();
-                UserRegistrationRequest registrationRequest = new UserRegistrationRequest(firstName, lastName, email, uuid);
+                UserRegistrationRequest registrationRequest = new UserRegistrationRequest(firstName, lastName, "0", email, uuid);
                 registerUserOnServer(registrationRequest);
             } else {
                 displayFirebaseError(task.getException());

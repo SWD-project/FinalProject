@@ -11,11 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/a2"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="51dp"
+            android:background="@color/a3"
             android:orientation="horizontal">
 
             <ImageView
@@ -39,11 +41,11 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:text="Choose your payment method"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="8dp"/>
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvCheckout"
@@ -62,7 +64,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="340dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/checkout">
 
             <TextView
                 android:id="@+id/nameUserCredit"
@@ -71,17 +75,20 @@
                 android:layout_marginStart="16dp"
                 android:gravity="center|left"
                 android:text="Jonh Cena"
-                android:textSize="16sp"
+                android:textColor="@color/red"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView13"
                 app:layout_constraintStart_toEndOf="@+id/imageView13"
-                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+                app:layout_constraintTop_toTopOf="@+id/imageView13"
+                tools:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name on Cart"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="16dp"
@@ -102,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Card number"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/imageView13" />
@@ -122,10 +130,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="1221-2345-7891-2980"
-                android:textSize="16sp"
+                android:textColor="@color/red"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView14"
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
-                app:layout_constraintTop_toTopOf="@+id/imageView14" />
+                app:layout_constraintTop_toTopOf="@+id/imageView14"
+                tools:textStyle="bold" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -140,9 +150,9 @@
                 android:text="Pay"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="192dp"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
