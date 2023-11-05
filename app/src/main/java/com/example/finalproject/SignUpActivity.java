@@ -9,20 +9,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.finalproject.api.Api;
-import com.example.finalproject.model.UserRegistrationRequest;
+import com.example.finalproject.api.user.UserRepository;
+import com.example.finalproject.api.user.UserService;
+import com.example.finalproject.model.dto.UserRegistrationRequest;
 import com.google.firebase.auth.FirebaseAuth;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends AppCompatActivity {
     TextView tvSignIn;
     EditText etEmail, etPassword, etConfirmPassword, etFirstName, etLastName;
     Button btnSignUp;
+    UserService userService;
 
     FirebaseAuth mFirebaseAuth;
 
@@ -76,13 +76,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void registerUserOnServer(UserRegistrationRequest registrationRequest) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        Api api = retrofit.create(Api.class);
-        Call<UserRegistrationRequest> call = api.createUser(registrationRequest);
+
+        UserService userService = UserRepository.getUserService();
+        Call<UserRegistrationRequest> call = userService.createUser(registrationRequest);
         call.enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<UserRegistrationRequest> call, Response<UserRegistrationRequest> response) {
