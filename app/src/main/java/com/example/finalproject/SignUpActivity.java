@@ -23,7 +23,6 @@ public class SignUpActivity extends AppCompatActivity {
     EditText etEmail, etPassword, etConfirmPassword, etFirstName, etLastName;
     Button btnSignUp;
     UserService userService;
-
     FirebaseAuth mFirebaseAuth;
 
     @Override

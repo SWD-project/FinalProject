@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_cartoon_and_comic"
+        android:orderInCategory="100"
+        android:title="Cartoon and Comic"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_art_history_and_theory"
+        android:orderInCategory="100"
+        android:title="Art History and Theory"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_foundational"
+        android:orderInCategory="100"
+        android:title="Foundational"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_specialized"
+        android:orderInCategory="100"
+        android:title="Specialized"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_digital"
+        android:orderInCategory="100"
+        android:title="Digital"
+        app:showAsAction="never" />
+</menu>
