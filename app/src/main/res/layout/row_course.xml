@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView16"
+            android:id="@+id/ivCourseThumbnail"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,14 +28,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/tvCourseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="Course Title" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/tvCourseRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -49,18 +49,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/tvCoursePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="$299" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnBuyCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:background="#DC2323"
+                android:backgroundTint="#F32424"
+                android:text="Add To Cart" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
