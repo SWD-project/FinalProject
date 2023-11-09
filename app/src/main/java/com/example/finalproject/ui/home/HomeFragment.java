@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.databinding.FragmentHomeBinding;
 
@@ -23,6 +24,12 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        final RecyclerView rvCartoonAndComic = binding.rvCartoonAndComic;
+        final RecyclerView rvDigital = binding.rvDigital;
+        final RecyclerView rvFoundational = binding.rvFoundational;
+        final RecyclerView rvSpecialized = binding.rvSpecialized;
+        final RecyclerView rvArtHistoryAndTheory = binding.rvArtHistoryAndTheory;
 
         return root;
     }

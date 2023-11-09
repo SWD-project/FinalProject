@@ -32,7 +32,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarHomePage.toolbar);
-        setupFabOnClickListener();
         setupNavigation();
     }
 
@@ -50,15 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    private void setupFabOnClickListener() {
-        binding.appBarHomePage.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
