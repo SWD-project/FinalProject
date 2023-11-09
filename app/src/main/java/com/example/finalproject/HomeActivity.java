@@ -72,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             //start activity
             startCategoryActivity();
         }
+
         return super.onOptionsItemSelected(item);
     }
 
