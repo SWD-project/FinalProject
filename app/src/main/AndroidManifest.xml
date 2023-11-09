@@ -20,7 +20,6 @@
             android:exported="true"
             android:label="@string/title_activity_course_detail"
             android:theme="@style/Theme.FinalProject.NoActionBar">
-
         </activity>
         <activity
             android:name=".CategoryActivity"
