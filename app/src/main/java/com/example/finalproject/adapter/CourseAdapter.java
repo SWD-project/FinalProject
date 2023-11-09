@@ -37,6 +37,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
         holder.tvCourseDiscount.setText(String.valueOf(courseList.get(position).getPercent()));
+        holder.tvOriginalPrice.setText(String.valueOf(courseList.get(position).getPrice()));
+
 
     }
 
