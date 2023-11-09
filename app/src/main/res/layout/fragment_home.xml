@@ -30,7 +30,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCartoonAndComic"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeadingCartoonAndComic" />
@@ -47,7 +47,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvArtHistoryAndTheory"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeadingArtHistoryAndTheory" />
@@ -65,7 +65,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFoundational"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeadingFoundational" />
@@ -82,7 +82,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDigital"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeadingDigital" />
@@ -99,7 +99,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSpecialized"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeadingSpecialized" />
