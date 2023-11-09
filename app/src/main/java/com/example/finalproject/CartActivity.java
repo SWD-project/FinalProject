@@ -112,7 +112,6 @@ public class CartActivity extends AppCompatActivity {
                     displayToast("list is null");
                 }
 
-                list = res.getData();
                 adapter();
             }
 
