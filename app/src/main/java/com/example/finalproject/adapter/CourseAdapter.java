@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 import com.example.finalproject.model.entity.Course;
 
+import com.example.finalproject.ui.home.HomeFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,6 +23,7 @@ import java.util.List;
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
     Context context;
     List<Course> courseList;
+    private OnItemClickListener onClickListener;
 
     public CourseAdapter(Context context, List<Course> courseList) {
         this.context = context;
@@ -40,6 +43,17 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
         holder.tvCourseTitle.setText(courseList.get(position).getTitle());
         Picasso.get().load(courseList.get(position).getThumbnailUrl()).into(holder.ivCourseThumbnail);
+
+        holder.itemView.setOnClickListener(v -> {
+            if (onClickListener != null) {
+                onClickListener.onItemClick(holder.itemView, position);
+            }
+        });
+    }
+
+
+    public void setOnClickListener(OnItemClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @Override
