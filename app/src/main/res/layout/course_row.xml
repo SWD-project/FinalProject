@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCourseTitle"
+        android:id="@+id/tvCourseDetailTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -48,8 +48,8 @@
         android:drawablePadding="4dp"
         android:text="4.5"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tvCourseTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvCourseTitle"
+        app:layout_constraintStart_toStartOf="@id/tvCourseDetailTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvCourseDetailTitle"
         app:drawableStartCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
@@ -71,7 +71,7 @@
         android:textColor="#9E9E9E"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/tvCoursePrice"
-        app:layout_constraintStart_toStartOf="@id/tvCourseTitle"
+        app:layout_constraintStart_toStartOf="@id/tvCourseDetailTitle"
         app:layout_constraintTop_toTopOf="@id/tvCoursePrice" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:textColor="#FF5722"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/tvCourseTitle"
+        app:layout_constraintStart_toStartOf="@id/tvCourseDetailTitle"
         app:layout_constraintTop_toBottomOf="@id/tvCourseRating" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

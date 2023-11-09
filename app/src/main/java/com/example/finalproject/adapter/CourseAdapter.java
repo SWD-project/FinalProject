@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 import com.example.finalproject.model.entity.Course;
 
-import com.example.finalproject.ui.home.HomeFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -75,7 +73,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvCourseTitle = itemView.findViewById(R.id.tvCourseTitle);
+            tvCourseTitle = itemView.findViewById(R.id.tvCourseDetailTitle);
             tvCourseDiscount = itemView.findViewById(R.id.tvDiscountLabel);
             tvOriginalPrice = itemView.findViewById(R.id.tvOriginalPrice);
             tvCourseRating = itemView.findViewById(R.id.tvCourseRating);
