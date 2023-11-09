@@ -1,6 +1,7 @@
 package com.example.finalproject.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,29 +40,40 @@ public class HomeFragment extends Fragment {
         final RecyclerView rvSpecialized = binding.rvSpecialized;
         final RecyclerView rvArtHistoryAndTheory = binding.rvArtHistoryAndTheory;
 
+        var courseComicAndCartoonList = homeViewModel.getCourseCartoonAndComicList();
+        var courseDigitalList = homeViewModel.getCourseDigitalList();
+        var courseFoundationalList = homeViewModel.getCourseFoundationalList();
+        var courseSpecializedList = homeViewModel.getCourseSpecializedList();
+        var courseArtHistoryAndTheoryList = homeViewModel.getCourseArtHistoryAndTheoryList();
+
+       for (var course : courseComicAndCartoonList) {
+           Log.i("HomeFragment", "onCreateView: " + course.getTitle());
+       }
+
+
         courseAdapterCartoonAndComic = new CourseAdapter(
                 getContext(),
-                homeViewModel.getCourseCartoonAndComicList()
+                courseComicAndCartoonList
         );
 
         courseAdapterDigital = new CourseAdapter(
                 getContext(),
-                homeViewModel.getCourseDigitalList()
+                courseDigitalList
         );
 
         courseAdapterFoundational = new CourseAdapter(
                 getContext(),
-                homeViewModel.getCourseFoundationalList()
+                courseFoundationalList
         );
 
         courseAdapterSpecialized = new CourseAdapter(
                 getContext(),
-                homeViewModel.getCourseSpecializedList()
+                courseSpecializedList
         );
 
         courseAdapterArtHistoryAndTheory = new CourseAdapter(
                 getContext(),
-                homeViewModel.getCourseArtHistoryAndTheoryList()
+                courseArtHistoryAndTheoryList
         );
 
 

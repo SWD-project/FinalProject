@@ -41,7 +41,6 @@ public class HomeViewModel extends ViewModel {
                 if (response.isSuccessful()) {
 
                     courseCartoonAndComicList.addAll(response.body().getData().get(0).getCourse());
-                    Log.i("Fetch Success", "onResponse: " + response.body().getData().get(0).getCourse());
                     Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
                 }
             }
@@ -62,7 +61,7 @@ public class HomeViewModel extends ViewModel {
             public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
                 if(response.isSuccessful()) {
                     courseDigitalList.addAll(response.body().getData().get(0).getCourse());
-                    Log.i("Fetch Success", "onResponse: " + response.body().getData().get(0).getCourse());
+                    Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
                 }
             }
 
@@ -81,7 +80,8 @@ public class HomeViewModel extends ViewModel {
             public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
                 if(response.isSuccessful()) {
                     courseFoundationalList.addAll(response.body().getData().get(0).getCourse());
-                    Log.i("Fetch Success", "onResponse: " + response.body().getData().get(0).getCourse());
+
+                    Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
                 }
             }
 
@@ -101,7 +101,7 @@ public class HomeViewModel extends ViewModel {
             public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
                 courseSpecializedList.addAll(response.body().getData().get(0).getCourse());
 
-                Log.i("Fetch Success", "onResponse: " + response.body().getData().get(0).getCourse());
+                Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
             }
 
             @Override
@@ -119,8 +119,11 @@ public class HomeViewModel extends ViewModel {
 
             @Override
             public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                Log.i("Fetch Success", "onResponse: " + response.body().getData().get(0).getCourse());
-                courseArtHistoryAndTheoryList.addAll(response.body().getData().get(0).getCourse());
+                var data = response.body().getData().get(0).getCourse();
+                for (var course : data) {
+                    courseArtHistoryAndTheoryList.add(course);
+                }
+                Log.i("Course Size", "onResponse" + courseArtHistoryAndTheoryList.get(0).getTitle());
             }
 
             @Override
@@ -129,7 +132,9 @@ public class HomeViewModel extends ViewModel {
                 Log.i("Fetch Failed", "onFailure: " + t.getMessage());
             }
         });
-        return courseArtHistoryAndTheoryList;
+        Log.i("Course Return Value", "onResponse" + courseArtHistoryAndTheoryList.size());
+        return courseArtHistoryAndTheoryList
+        ;
     }
 }
 
