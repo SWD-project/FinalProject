@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 import com.example.finalproject.model.entity.Course;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
@@ -37,7 +39,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
         holder.tvCourseTitle.setText(courseList.get(position).getTitle());
-
+        Picasso.get().load(courseList.get(position).getThumbnailUrl()).into(holder.ivCourseThumbnail);
     }
 
     @Override
