@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
         CourseAdapter courseAdapter = new CourseAdapter(getContext(), new ArrayList<>());
         courseAdapter.setOnClickListener((view, position) -> {
             Intent intent = new Intent(getContext(), CourseDetailsActivity.class);
+            intent.putExtra("courseId", courseAdapter.getCourses().get(position).get_id());
             startActivity(intent);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

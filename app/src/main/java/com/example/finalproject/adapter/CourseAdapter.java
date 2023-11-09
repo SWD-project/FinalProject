@@ -40,7 +40,10 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
         holder.tvCourseTitle.setText(courseList.get(position).getTitle());
-        Picasso.get().load(courseList.get(position).getThumbnailUrl()).into(holder.ivCourseThumbnail);
+//        Picasso.get().load(courseList.get(position).getThumbnailUrl()).into(holder.ivCourseThumbnail);
+//        holder.tvOriginalPrice.setText(String.valueOf(courseList.get(position).getPrice()));
+//        holder.tvDiscountedPrice.setText(String.valueOf(courseList.get(position).getDiscountPercent()));
+//        holder.tvCourseRating.setText(String.valueOf(courseList.get(position).getLevel()));
 
         holder.itemView.setOnClickListener(v -> {
             if (onClickListener != null) {
@@ -63,6 +66,10 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         courseList.clear();
         courseList.addAll(courses);
         notifyDataSetChanged();
+    }
+
+    public List<Course> getCourses() {
+        return courseList;
     }
 
 

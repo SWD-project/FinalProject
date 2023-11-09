@@ -104,10 +104,10 @@ public class CourseDetailActivity extends AppCompatActivity {
     }
 
     private void map() {
-        tvCourseTitle = findViewById(R.id.tvCourseTitle);
-        tvCourseDescription = findViewById(R.id.tvCourseDescription);
-        tvCourseLecture = findViewById(R.id.tvCourseLecture);
-        lvCourseOutcome = findViewById(R.id.lvCourseOutcome);
+//        tvCourseTitle = findViewById(R.id.t vCourseTitle);
+//        tvCourseDescription = findViewById(R.id.tvCourseDescription);
+//        tvCourseLecture = findViewById(R.id.tvCourseLecture);
+//        lvCourseOutcome = findViewById(R.id.lvCourseOutcome);
         btnAddToCart = findViewById(R.id.btnAddToCart);
         courseService = CourseRepository.getCourseService();
     }
