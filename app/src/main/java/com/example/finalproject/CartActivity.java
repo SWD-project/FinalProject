@@ -111,6 +111,8 @@ public class CartActivity extends AppCompatActivity {
                 if (list == null || list.size() == 0) {
                     displayToast("list is null");
                 }
+
+                list = res.getData();
                 adapter();
             }
 
