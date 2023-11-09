@@ -19,7 +19,7 @@
             android:name=".CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_home_page"
             android:theme="@style/Theme.FinalProject.NoActionBar">

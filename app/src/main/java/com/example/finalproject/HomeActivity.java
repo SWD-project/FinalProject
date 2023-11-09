@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalproject.databinding.ActivityHomePageBinding;
 
-public class HomePage extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomePageBinding binding;
@@ -32,13 +32,11 @@ public class HomePage extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarHomePage.toolbar);
-        binding.appBarHomePage.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setupFabOnClickListener();
+        setupNavigation();
+    }
+
+    private void setupNavigation() {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -50,6 +48,16 @@ public class HomePage extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_page);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void setupFabOnClickListener() {
+        binding.appBarHomePage.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
@@ -71,10 +79,14 @@ public class HomePage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.action_art_history_and_theory){
             //start activity
-            Intent intent = new Intent(this, CategoryActivity.class);
-            intent.putExtra("category", "<DB Value>");
-            startActivity(intent);
+            startCategoryActivity();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startCategoryActivity() {
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category", "<DB Value>");
+        startActivity(intent);
     }
 }
