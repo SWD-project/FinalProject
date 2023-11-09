@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalproject.databinding.ActivityHomePageBinding;
 
+
 public class HomePage extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -69,12 +70,33 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.action_art_history_and_theory){
-            //start activity
-            Intent intent = new Intent(this, CategoryActivity.class);
-            intent.putExtra("category", "<DB Value>");
-            startActivity(intent);
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_cartoon_and_comic) {
+
+            Intent cartoonAndComicIntent = new Intent(this, CartoonAndTheory.class);
+            startActivity(cartoonAndComicIntent);
+        } else if (itemId == R.id.action_art_history_and_theory) {
+
+            Intent artHistoryAndTheoryIntent = new Intent(this, artHistoryAndTheory.class);
+            startActivity(artHistoryAndTheoryIntent);
+        } else if (itemId == R.id.action_foundational) {
+
+            Intent foundationalIntent = new Intent(this, Foundational.class);
+            startActivity(foundationalIntent);
+        } else if (itemId == R.id.action_specialized) {
+
+            Intent specializedIntent = new Intent(this, Specialized.class);
+            startActivity(specializedIntent);
+        } else if (itemId == R.id.action_digital) {
+
+            Intent digitalIntent = new Intent(this, Digital.class);
+            startActivity(digitalIntent);
         }
+
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

@@ -16,6 +16,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Digital"
+            android:exported="false" />
+        <activity
+            android:name=".Specialized"
+            android:exported="false" />
+        <activity
+            android:name=".Foundational"
+            android:exported="false" />
+        <activity
+            android:name=".artHistoryAndTheory"
+            android:exported="false" />
+        <activity
+            android:name=".CartoonAndTheory"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".CategoryActivity"
             android:exported="false" />
         <activity
@@ -34,7 +55,7 @@
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ProfileInstructorActivity"
             android:exported="false" />

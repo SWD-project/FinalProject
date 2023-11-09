@@ -6,19 +6,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_transaction"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/arrow_detail"
+            android:title="ErollCourse"/>
+<!--            app:action="androidx.navigation.ui.AppBarConfiguration.Builder"-->
+<!--            app:destination="@id/transaction_destination"-->
+
         <item
             android:id="@+id/nav_cart"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/credit"
+            android:title="Transaction" />
         <item
             android:id="@+id/nav_enrolled_course"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/arrow"
+            android:title="Logout"/>
+<!--            app:action="androidx.navigation.ui.AppBarConfiguration.Builder"-->
+<!--            app:destination="@id/transaction_destination"-->
+
     </group>
 </menu>
