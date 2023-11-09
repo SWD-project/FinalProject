@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.finalproject.databinding.FragmentCourseDetailBinding;
 
@@ -24,6 +27,11 @@ public class CourseDetailFragment extends Fragment {
         View root = binding.getRoot();
 
         //code for setting up views
+        ImageView ivCourseDetailThumbnail = binding.ivCourseDetailThumbnail;
+        TextView tvCourseDetailTitle = binding.tvCourseDetailTitle;
+        TextView tvCourseDetailDescription = binding.tvCourseDetailDescription;
+        TextView tvCourseDetailLecture = binding.tvCourseDetailLecture;
+        Button btnAddToCart = binding.btnAddToCart;
 
 
         return root;
