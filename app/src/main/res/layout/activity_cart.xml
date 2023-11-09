@@ -34,11 +34,12 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvCheckout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp" />
+        <ListView
+            android:id="@+id/lv_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_margin="10dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +56,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/totalPrice"
+                android:id="@+id/tv_totalPrice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -65,21 +66,15 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <Button
+            android:id="@+id/btn_pay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnPay"
-                android:layout_width="match_parent"
-                android:layout_height="69dp"
-                android:background="@color/red"
-                android:text="Check Out"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="340dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:text="CHECKOUT"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            />
 
     </LinearLayout>
 
