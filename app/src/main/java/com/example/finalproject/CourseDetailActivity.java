@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalproject.adapter.OutcomeAdapter;
 import com.example.finalproject.api.course.CourseRepository;
 import com.example.finalproject.api.course.CourseService;
 import com.example.finalproject.model.dto.GetCourseRequest;
@@ -30,6 +31,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalproject.databinding.ActivityCourseDetailBinding;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +50,7 @@ public class CourseDetailActivity extends AppCompatActivity {
     Button btnAddToCart;
     GetCourseResponse course;
     CourseService courseService;
+    ArrayList<String> outcomeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +82,16 @@ public class CourseDetailActivity extends AppCompatActivity {
                     tvCourseTitle.setText(course.getTitle());
                     tvCourseDescription.setText(course.getDescription());
                     tvCourseLecture.setText(course.getLectureId().getFirstName() + " " + course.getLectureId().getLastName());
+
+                    ArrayList<String> outcome = new ArrayList<>(Arrays.asList(course.getOutcome().split("-")));
+                    OutcomeAdapter outcomeAdapter = new OutcomeAdapter(CourseDetailActivity.this, R.layout.outcome_layout, outcome);
+
+                    lvCourseOutcome.setAdapter(outcomeAdapter);
                 } else {
                     displayToast("Get course error" + response.message());
                 }
             }
+
             @Override
             public void onFailure(Call<ResponseBody<GetCourseResponse>> call, Throwable t) {
                 displayToast("Get course error");
