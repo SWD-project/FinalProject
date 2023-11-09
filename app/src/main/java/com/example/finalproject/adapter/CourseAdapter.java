@@ -45,6 +45,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         return courseList.size();
     }
 
+    public void updateCourses(List<Course> courses) {
+        courseList.clear();
+        courseList.addAll(courses);
+        notifyDataSetChanged();
+    }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvCourseTitle, tvCourseDiscount, tvOriginalPrice, tvDiscountedPrice, tvCourseRating, tvRatingCount;
         ImageView ivCourseThumbnail;

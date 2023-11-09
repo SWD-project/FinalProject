@@ -22,119 +22,94 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+// Other imports...
+
 public class HomeViewModel extends ViewModel {
-    private List<Course> courseCartoonAndComicList = new ArrayList<>();
-    private List<Course> courseDigitalList = new ArrayList<>();
-    private List<Course> courseFoundationalList = new ArrayList<>();
-    private List<Course> courseSpecializedList = new ArrayList<>();
-    private List<Course> courseArtHistoryAndTheoryList = new ArrayList<>();
+    // LiveData for different categories of courses
+    private MutableLiveData<List<Course>> liveDataCourseCartoonAndComicList = new MutableLiveData<>();
+    private MutableLiveData<List<Course>> liveDataCourseDigitalList = new MutableLiveData<>();
+    private MutableLiveData<List<Course>> liveDataCourseFoundationalList = new MutableLiveData<>();
+    private MutableLiveData<List<Course>> liveDataCourseSpecializedList = new MutableLiveData<>();
+    private MutableLiveData<List<Course>> liveDataCourseArtHistoryAndTheoryList = new MutableLiveData<>();
+
+    private boolean isLoadingCartoonAndComic = false;
+    private boolean isLoadingDigital = false;
+    private boolean isLoadingFoundational = false;
+    private boolean isLoadingSpecialized = false;
+    private boolean isLoadingArtHistoryAndTheory = false;
+
     private CourseService courseService = CourseRepository.getCourseService();
 
     public HomeViewModel() {
+        // You can initiate loading data here if needed
+        // or you can initiate loading in the UI when observing
     }
 
-    public List<Course> getCourseCartoonAndComicList() {
-        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(Category.CARTOON_AND_COMIC));
-        call.enqueue(new Callback<>() {
+    // LiveData getters
+    public LiveData<List<Course>> getLiveDataCourseCartoonAndComicList() {
+        loadCoursesByCategory(Category.CARTOON_AND_COMIC, liveDataCourseCartoonAndComicList);
+        return liveDataCourseCartoonAndComicList;
+    }
+
+    public LiveData<List<Course>> getLiveDataCourseDigitalList() {
+        loadCoursesByCategory(Category.DIGITAL, liveDataCourseDigitalList);
+        return liveDataCourseDigitalList;
+    }
+
+    public LiveData<List<Course>> getLiveDataCourseFoundationalList() {
+        loadCoursesByCategory(Category.FOUNDATIONAL, liveDataCourseFoundationalList);
+        return liveDataCourseFoundationalList;
+    }
+
+    public LiveData<List<Course>> getLiveDataCourseSpecializedList() {
+        loadCoursesByCategory(Category.SPECIALIZED, liveDataCourseSpecializedList);
+        return liveDataCourseSpecializedList;
+    }
+
+    public LiveData<List<Course>> getLiveDataCourseArtHistoryAndTheoryList() {
+        loadCoursesByCategory(Category.ART_HISTORY_AND_THEORY, liveDataCourseArtHistoryAndTheoryList);
+        return liveDataCourseArtHistoryAndTheoryList;
+    }
+
+    // Helper method to load courses by category and update LiveData
+    private void loadCoursesByCategory(String category, MutableLiveData<List<Course>> liveDataList) {
+        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(category));
+        call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
             @Override
             public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                if (response.isSuccessful()) {
-
-                    courseCartoonAndComicList.addAll(response.body().getData().get(0).getCourse());
-                    Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Course> courses = response.body().getData().get(0).getCourse();
+                    liveDataList.postValue(courses);
+                } else {
+                    // Handle the case where the response is not successful or the body is null
+                    liveDataList.postValue(new ArrayList<>()); // Post an empty list or null
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody<GetCategoryCourseResponse>> call, Throwable t) {
-
                 Log.i("Fetch Failed", "onFailure: " + t.getMessage());
+                liveDataList.postValue(null); // Post null or some error indicator
             }
         });
-        return courseCartoonAndComicList;
     }
 
-    public List<Course> getCourseDigitalList() {
-        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(Category.DIGITAL));
-        call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
-            @Override
-            public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                if(response.isSuccessful()) {
-                    courseDigitalList.addAll(response.body().getData().get(0).getCourse());
-                    Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody<GetCategoryCourseResponse>> call, Throwable t) {
-                Log.i("Fetch Failed", "onFailure: " + t.getMessage());
-            }
-        });
-        return courseDigitalList;
-    }
-
-    public List<Course> getCourseFoundationalList() {
-        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(Category.FOUNDATIONAL));
-        call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
-            @Override
-            public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                if(response.isSuccessful()) {
-                    courseFoundationalList.addAll(response.body().getData().get(0).getCourse());
-
-                    Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody<GetCategoryCourseResponse>> call, Throwable t) {
-
-                Log.i("Fetch Failed", "onFailure: " + t.getMessage());
-            }
-        });
-        return courseFoundationalList;
-    }
-
-    public List<Course> getCourseSpecializedList() {
-        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(Category.SPECIALIZED));
-        call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
-            @Override
-            public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                courseSpecializedList.addAll(response.body().getData().get(0).getCourse());
-
-                Log.i("Course Size", "onResponse" + response.body().getData().get(0).getCourse().size());
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody<GetCategoryCourseResponse>> call, Throwable t) {
-
-                Log.i("Fetch Failed", "onFailure: " + t.getMessage());
-            }
-        });
-        return courseSpecializedList;
-    }
-
-    public List<Course> getCourseArtHistoryAndTheoryList() {
-        var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(Category.ART_HISTORY_AND_THEORY));
-        call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
-
-            @Override
-            public void onResponse(Call<ResponseBody<GetCategoryCourseResponse>> call, Response<ResponseBody<GetCategoryCourseResponse>> response) {
-                var data = response.body().getData().get(0).getCourse();
-                for (var course : data) {
-                    courseArtHistoryAndTheoryList.add(course);
-                }
-                Log.i("Course Size", "onResponse" + courseArtHistoryAndTheoryList.get(0).getTitle());
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody<GetCategoryCourseResponse>> call, Throwable t) {
-
-                Log.i("Fetch Failed", "onFailure: " + t.getMessage());
-            }
-        });
-        Log.i("Course Return Value", "onResponse" + courseArtHistoryAndTheoryList.size());
-        return courseArtHistoryAndTheoryList
-        ;
+    public LiveData<List<Course>> getLiveDataByCategory(String category) {
+        switch (category) {
+            case Category.CARTOON_AND_COMIC:
+                return getLiveDataCourseCartoonAndComicList();
+            case Category.DIGITAL:
+                return getLiveDataCourseDigitalList();
+            case Category.FOUNDATIONAL:
+                return getLiveDataCourseFoundationalList();
+            case Category.SPECIALIZED:
+                return getLiveDataCourseSpecializedList();
+            case Category.ART_HISTORY_AND_THEORY:
+                return getLiveDataCourseArtHistoryAndTheoryList();
+            default:
+                return new MutableLiveData<>();
+        }
     }
 }
 
