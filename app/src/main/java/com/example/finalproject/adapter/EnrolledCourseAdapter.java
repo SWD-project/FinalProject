@@ -4,20 +4,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.finalproject.ErolledCourseActivity;
 import com.example.finalproject.R;
-import com.example.finalproject.TransactionActivity;
-import com.example.finalproject.model.dto.GetTransactionRespone;
+import com.example.finalproject.model.dto.GetEnrolledCourseRespone;
+import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
-public class TransactionAdapter extends BaseAdapter {
-    private TransactionActivity context;
+public class EnrolledCourseAdapter extends BaseAdapter {
+    private ErolledCourseActivity context;
     private int layout;
-    private List<GetTransactionRespone> list;
+    private List<GetEnrolledCourseRespone> list;
 
-    public TransactionAdapter(TransactionActivity context, int layout, List<GetTransactionRespone> list) {
+    public EnrolledCourseAdapter(ErolledCourseActivity context, int layout, List<GetEnrolledCourseRespone> list) {
         this.context = context;
         this.layout = layout;
         this.list = list;
@@ -42,17 +45,14 @@ public class TransactionAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(layout, null);
-        TextView coId = convertView.findViewById(R.id.course_id_transaction);
-        TextView payment = convertView.findViewById(R.id.payment_course_transaction);
-        TextView total = convertView.findViewById(R.id.total_course_transaction);
+        ImageView img = convertView.findViewById(R.id.img_enrolled_course_item);
+        TextView title = convertView.findViewById(R.id.title_enrolled_course_item);
 
-        GetTransactionRespone respone = list.get(position);
+        GetEnrolledCourseRespone respone = list.get(position);
 
-        coId.setText(respone.getCourseId().getTitle());
-        payment.setText(String.valueOf(respone.getPayment()));
-        total.setText(String.valueOf(respone.getTotal()));
-
-
+        String imageUrl = respone.getCourseId().getThumbnailUrl();
+        Picasso.get().load(imageUrl).into(img);
+        title.setText(respone.getCourseId().getTitle());
         return convertView;
     }
 }

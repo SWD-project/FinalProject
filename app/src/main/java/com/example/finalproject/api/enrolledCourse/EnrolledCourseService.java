@@ -11,6 +11,5 @@ import retrofit2.http.POST;
 
 public interface EnrolledCourseService {
     @POST("enrolled-course/get")
-    Call<ResponseBody<GetEnrolledCourseRespone>> getTransaction(@Header("Authorization") String uuid, @Body GetEnrolledCourseRespone respone );
-
+    Call<ResponseBody<GetEnrolledCourseRespone>> getEnrolledCourse(@Header("Authorization") String uuid);
 }

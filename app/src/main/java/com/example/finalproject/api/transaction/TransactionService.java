@@ -11,6 +11,7 @@ import retrofit2.http.POST;
 
 public interface TransactionService {
     @POST("transaction/get")
-    Call<ResponseBody<GetTransactionRespone>> getTransaction(@Header("Authorization") String uuid, @Body GetTransactionRequest getTransactionRequest);
+    Call<ResponseBody<GetTransactionRespone>> getTransaction(@Header("Authorization") String uuid);
+
 
 }

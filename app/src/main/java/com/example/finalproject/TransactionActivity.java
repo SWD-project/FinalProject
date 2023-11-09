@@ -8,6 +8,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
 import com.example.finalproject.adapter.TransactionAdapter;
@@ -23,25 +24,28 @@ import java.util.List;
 
 public class TransactionActivity extends AppCompatActivity {
 
-    ListView listTransaction;
+
     TransactionService transactionService;
     ListView listView;
     List<GetTransactionRespone> list;
-    FirebaseAuth mFirebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
         map();
-        adapter();
 
 
-        Call<ResponseBody<GetTransactionRespone>> call = transactionService.getTransaction(mFirebaseAuth.getUid(),new GetTransactionRequest());
+        Call<ResponseBody<GetTransactionRespone>> call = transactionService.getTransaction("odRaAE9UPaTaXh5qRyzsenb4oqv1");
         call.enqueue(new Callback<ResponseBody<GetTransactionRespone>>() {
             @Override
             public void onResponse(Call<ResponseBody<GetTransactionRespone>> call, Response<ResponseBody<GetTransactionRespone>> response) {
                 ResponseBody<GetTransactionRespone> x = response.body();
                 list = x.getData();
+                if(list == null || list.size() == 0){
+                    displayToast("list is null");
+                }
+                displayToast(list.get(0).getCourseId().getTitle());
                 adapter();
             }
 
@@ -52,10 +56,13 @@ public class TransactionActivity extends AppCompatActivity {
         });
 
     }
+    private void displayToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
     private void map(){
         transactionService = TransactionRepository.getTracsactionService();
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        listView = findViewById(R.id.list_transaction);
     }
     private void adapter(){
         TransactionAdapter adapter = new TransactionAdapter(this,R.layout.activity_transaction_item,list);
