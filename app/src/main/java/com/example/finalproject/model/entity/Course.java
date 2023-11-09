@@ -6,7 +6,7 @@ public class Course {
     private String title;
     private String description;
     private Double price;
-    private Double percent;
+    private Double discountPercent;
     private String thumbnailUrl;
     private String createdAt;
     private String updatedAt;
@@ -16,13 +16,16 @@ public class Course {
     private int level;
     private String categoryId;
 
-    public Course(String _id, String lectureId, String title, String description, Double price, Double percent, String thumbnailUrl, String createdAt, String updatedAt, String outcome, int courseStatus, int totalLesson, int level, String categoryId) {
+    public Course() {
+    }
+
+    public Course(String _id, String lectureId, String title, String description, Double price, Double discountPercent, String thumbnailUrl, String createdAt, String updatedAt, String outcome, int courseStatus, int totalLesson, int level, String categoryId) {
         this._id = _id;
         this.lectureId = lectureId;
         this.title = title;
         this.description = description;
         this.price = price;
-        this.percent = percent;
+        this.discountPercent = discountPercent;
         this.thumbnailUrl = thumbnailUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -73,12 +76,12 @@ public class Course {
         this.price = price;
     }
 
-    public Double getPercent() {
-        return percent;
+    public Double getDiscountPercent() {
+        return discountPercent;
     }
 
-    public void setPercent(Double percent) {
-        this.percent = percent;
+    public void setDiscountPercent(Double discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
     public String getThumbnailUrl() {

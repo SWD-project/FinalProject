@@ -6,41 +6,42 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img_course"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/img_course_cart_detail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/default_course2"
 
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        />
 
     <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_title_cart_detail"
+        android:layout_width="237dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:text="Title of course"
         android:textSize="20dp"
-        android:layout_marginStart="10dp"
 
-        app:layout_constraintStart_toEndOf="@+id/img_course"
+        app:layout_constraintStart_toEndOf="@+id/img_course_cart_detail"
         app:layout_constraintTop_toTopOf="parent"
 
 
         />
 
     <TextView
-        android:id="@+id/tv_price"
+        android:id="@+id/tv_price_cart_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:text="$100"
-        app:layout_constraintStart_toEndOf="@+id/img_course"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="$0"
+        app:layout_constraintStart_toEndOf="@+id/img_course_cart_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_cart_detail" />
 
     <CheckBox
-        android:id="@+id/check_box_cart"
+        android:id="@+id/check_box_cart_detail"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"

@@ -1,12 +1,9 @@
 package com.example.finalproject.api.cart;
 
-import com.example.finalproject.model.dto.CourseSearchRequest;
-import com.example.finalproject.model.dto.CourseSearchResponse;
 import com.example.finalproject.model.dto.GetCartResponse;
 import com.example.finalproject.model.dto.ResponseBody;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
