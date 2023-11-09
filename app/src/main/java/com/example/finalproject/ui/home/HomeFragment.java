@@ -1,7 +1,7 @@
 package com.example.finalproject.ui.home;
 
-import static java.security.AccessController.getContext;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +9,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalproject.CourseDetailsActivity;
 import com.example.finalproject.adapter.CourseAdapter;
 import com.example.finalproject.constants.Category;
 import com.example.finalproject.databinding.FragmentHomeBinding;
-import com.example.finalproject.model.entity.Course;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -45,6 +42,10 @@ public class HomeFragment extends Fragment {
 
     private void setupRecyclerView(RecyclerView recyclerView, String category) {
         CourseAdapter courseAdapter = new CourseAdapter(getContext(), new ArrayList<>());
+        courseAdapter.setOnClickListener((view, position) -> {
+            Intent intent = new Intent(getContext(), CourseDetailsActivity.class);
+            startActivity(intent);
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(courseAdapter);
 
@@ -58,5 +59,8 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    
+
 
 }

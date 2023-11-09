@@ -45,14 +45,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/ivCourseDetailThumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="174dp"
                 android:paddingTop="100dp"
                 android:src="@drawable/course_udemy_2" />
 
             <TextView
-                android:id="@+id/tvCourseTitle"
+                android:id="@+id/tvCourseDetailTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
@@ -61,7 +61,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvCourseDescription"
+                android:id="@+id/tvCourseDetailDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
@@ -116,7 +116,7 @@
                     android:text="Created By:" />
 
                 <TextView
-                    android:id="@+id/tvCourseLecture"
+                    android:id="@+id/tvCourseDetailLecture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
@@ -140,7 +140,7 @@
                     android:textStyle="bold"
                     android:textSize="24sp"/>
                 <ListView
-                    android:id="@+id/lvCourseOutcome"
+                    android:id="@+id/lvCourseDetailOutcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"

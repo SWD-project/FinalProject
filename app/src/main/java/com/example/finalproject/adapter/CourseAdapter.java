@@ -14,11 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 import com.example.finalproject.model.entity.Course;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
     Context context;
     List<Course> courseList;
+    private OnItemClickListener onClickListener;
 
     public CourseAdapter(Context context, List<Course> courseList) {
         this.context = context;
@@ -37,7 +40,18 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
         holder.tvCourseTitle.setText(courseList.get(position).getTitle());
+        Picasso.get().load(courseList.get(position).getThumbnailUrl()).into(holder.ivCourseThumbnail);
 
+        holder.itemView.setOnClickListener(v -> {
+            if (onClickListener != null) {
+                onClickListener.onItemClick(holder.itemView, position);
+            }
+        });
+    }
+
+
+    public void setOnClickListener(OnItemClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -59,7 +73,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvCourseTitle = itemView.findViewById(R.id.tvCourseTitle);
+            tvCourseTitle = itemView.findViewById(R.id.tvCourseDetailTitle);
             tvCourseDiscount = itemView.findViewById(R.id.tvDiscountLabel);
             tvOriginalPrice = itemView.findViewById(R.id.tvOriginalPrice);
             tvCourseRating = itemView.findViewById(R.id.tvCourseRating);
