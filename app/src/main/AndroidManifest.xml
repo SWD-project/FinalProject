@@ -20,10 +20,6 @@
             android:exported="true"
             android:label="@string/title_activity_course_detail"
             android:theme="@style/Theme.FinalProject.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".CategoryActivity"
@@ -54,7 +50,12 @@
 
         <activity
             android:name=".CartActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />

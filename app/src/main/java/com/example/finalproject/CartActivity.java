@@ -14,6 +14,7 @@ import com.example.finalproject.adapter.CartAdapter;
 import com.example.finalproject.api.cart.CartRepository;
 import com.example.finalproject.api.cart.CartService;
 import com.example.finalproject.model.dto.GetCartResponse;
+import com.example.finalproject.model.dto.ResponseBody;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -77,22 +78,17 @@ public class CartActivity extends AppCompatActivity {
         //String uuid = FirebaseAuth.getInstance().getUid();
         String uuid = "odRaAE9UPaTaXh5qRyzsenb4oqv1";
 
-        Call<GetCartResponse[]> call = cartService.getCart(uuid);
-        call.enqueue(new Callback<GetCartResponse[]>() {
+        Call<ResponseBody<GetCartResponse>> call = cartService.getCart(uuid);
+        call.enqueue(new Callback<ResponseBody<GetCartResponse>>() {
             @Override
-            public void onResponse(Call<GetCartResponse[]> call, Response<GetCartResponse[]> response) {
-                GetCartResponse[] carts = response.body();
-                if (carts == null) {
-                    return;
-                }
-                for (GetCartResponse cart : carts) {
-                    list.add(cart);
-                }
+            public void onResponse(Call<ResponseBody<GetCartResponse>> call, Response<ResponseBody<GetCartResponse>> response) {
+                ResponseBody<GetCartResponse> resq = response.body();
+                list = resq.getData();
                 adapter();
             }
 
             @Override
-            public void onFailure(Call<GetCartResponse[]> call, Throwable t) {
+            public void onFailure(Call<ResponseBody<GetCartResponse>> call, Throwable t) {
 
             }
         });
