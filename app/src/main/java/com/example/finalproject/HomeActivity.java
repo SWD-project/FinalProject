@@ -3,10 +3,10 @@ package com.example.finalproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.finalproject.constants.Category;
+import com.example.finalproject.databinding.ActivityHomePageBinding;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +16,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.finalproject.databinding.ActivityHomePageBinding;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -50,7 +48,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -68,17 +65,30 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.action_art_history_and_theory){
+        if (item.getItemId() == R.id.action_art_history_and_theory) {
             //start activity
-            startCategoryActivity();
+            startCategoryActivity(Category.ART_HISTORY_AND_THEORY, "Art History and Theory");
+        } else if (item.getItemId() == R.id.action_foundational) {
+            //start activity
+            startCategoryActivity(Category.FOUNDATIONAL, "Foundational");
+        } else if (item.getItemId() == R.id.action_digital) {
+            //start activity
+            startCategoryActivity(Category.DIGITAL, "Digital");
+        } else if (item.getItemId() == R.id.action_specialized) {
+            //start activity
+            startCategoryActivity(Category.SPECIALIZED, "Specialized");
+        } else if (item.getItemId() == R.id.action_cartoon_and_comic) {
+            //start activity
+            startCategoryActivity(Category.CARTOON_AND_COMIC, "Cartoon and Comic");
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void startCategoryActivity() {
+    private void startCategoryActivity(String categoryId, String header) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "<DB Value>");
+        intent.putExtra("category", categoryId);
+        intent.putExtra("header", header);
         startActivity(intent);
     }
 }

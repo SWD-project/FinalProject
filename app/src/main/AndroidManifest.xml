@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Catgegory"
+            android:name=".CategoryActivity"
             android:exported="false"
             android:label="@string/title_activity_catgegory"
             android:theme="@style/Theme.FinalProject.NoActionBar" />
@@ -40,9 +40,7 @@
         <activity
             android:name=".CartoonAndTheory"
             android:exported="true" />
-        <activity
-            android:name=".CategoryActivity"
-            android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -72,9 +70,7 @@
         <activity
             android:name=".CheckOutActivity"
             android:exported="false" />
-        <activity
-            android:name=".CourseDetailActivity"
-            android:exported="false" />
+
         <activity
             android:name=".CartActivity"
             android:exported="false" />

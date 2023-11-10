@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvHeadingCartoonAndComic"
+            android:id="@+id/tvCategoryHeading"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Cartoon and Comic"
@@ -33,7 +33,7 @@
             android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHeadingCartoonAndComic" />
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryHeading" />
 
         <TextView
             android:id="@+id/tvHeadingArtHistoryAndTheory"
