@@ -6,9 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.finalproject.CourseDetailActivity;
 import com.example.finalproject.R;
-import com.example.finalproject.model.dto.GetCourseResponse;
 
 import java.util.List;
 
