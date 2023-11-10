@@ -73,13 +73,24 @@
 
         <activity
             android:name=".CartActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter android:label="@string/filter_view_example_gizmos">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data android:scheme="http"
+                    android:host="drawdemy" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
+
+
     </application>
 
 </manifest>
