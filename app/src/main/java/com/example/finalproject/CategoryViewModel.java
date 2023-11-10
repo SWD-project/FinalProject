@@ -1,4 +1,4 @@
-package com.example.finalproject.ui.ui.Category;
+package com.example.finalproject;
 
 import android.util.Log;
 
@@ -22,7 +22,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoryViewModel extends ViewModel {
-
     private MutableLiveData<List<Course>> liveDataCourseCartoonAndComicList = new MutableLiveData<>();
     private MutableLiveData<List<Course>> liveDataCourseDigitalList = new MutableLiveData<>();
     private MutableLiveData<List<Course>> liveDataCourseFoundationalList = new MutableLiveData<>();
@@ -36,10 +35,6 @@ public class CategoryViewModel extends ViewModel {
     private boolean isLoadingArtHistoryAndTheory = false;
 
     private CourseService courseService = CourseRepository.getCourseService();
-
-    public CategoryViewModel() {
-
-    }
     public LiveData<List<Course>> getLiveDataCourseCartoonAndComicList() {
         loadCoursesByCategory(Category.CARTOON_AND_COMIC, liveDataCourseCartoonAndComicList);
         return liveDataCourseCartoonAndComicList;
@@ -65,6 +60,7 @@ public class CategoryViewModel extends ViewModel {
         return liveDataCourseArtHistoryAndTheoryList;
     }
 
+    // Helper method to load courses by category and update LiveData
     private void loadCoursesByCategory(String category, MutableLiveData<List<Course>> liveDataList) {
         var call = courseService.getCategoryCourse(new GetCategoryCourseRequest(category));
         call.enqueue(new Callback<ResponseBody<GetCategoryCourseResponse>>() {
@@ -86,6 +82,7 @@ public class CategoryViewModel extends ViewModel {
             }
         });
     }
+
     public LiveData<List<Course>> getLiveDataByCategory(String category) {
         switch (category) {
             case Category.CARTOON_AND_COMIC:
@@ -102,5 +99,4 @@ public class CategoryViewModel extends ViewModel {
                 return new MutableLiveData<>();
         }
     }
-
 }
