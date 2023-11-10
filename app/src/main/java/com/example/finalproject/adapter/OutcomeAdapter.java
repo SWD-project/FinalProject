@@ -44,7 +44,7 @@ public class OutcomeAdapter extends BaseAdapter {
         convertView = inflater.inflate(layout, null);
 
         TextView tvOutcome = convertView.findViewById(R.id.tvOutcome);
-
+        int k = 123;
         tvOutcome.setText(list.get(position) + "");
         return convertView;
     }
