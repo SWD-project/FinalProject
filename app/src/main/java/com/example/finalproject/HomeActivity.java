@@ -96,6 +96,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            // Handle the home action
+        } else if (id == R.id.nav_gallery) {
+            // Handle the gallery action
+        } else if (id == R.id.nav_slideshow) {
+            // Handle the slideshow action
+        }
+
+        // Add more else if statements for other menu items if necessary
+
+        DrawerLayout drawer = binding.drawerLayout;
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
