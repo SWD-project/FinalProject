@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_cart, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_page);
@@ -98,12 +98,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the home action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_cart) {
+            Intent intent = new Intent(this, CartActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_enrolled_course) {
             // Handle the gallery action
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_transaction) {
             // Handle the slideshow action
+        } else if (id == R.id.nav_logout){
+
         }
 
         // Add more else if statements for other menu items if necessary

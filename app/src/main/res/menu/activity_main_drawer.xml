@@ -7,18 +7,18 @@
         <item
             android:id="@+id/nav_transaction"
             android:icon="@drawable/arrow_detail"
-            android:title="ErollCourse"/>
+            android:title="Transaction" />
 <!--            app:action="androidx.navigation.ui.AppBarConfiguration.Builder"-->
 <!--            app:destination="@id/transaction_destination"-->
 
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/credit"
-            android:title="Transaction" />
+            android:title="Cart" />
         <item
             android:id="@+id/nav_enrolled_course"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Enrolled Course" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/arrow"

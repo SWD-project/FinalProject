@@ -1,7 +1,6 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -70,7 +69,7 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void mapping() {
-        cartService = CartRepository.getCourseService();
+        cartService = CartRepository.getCartService();
         list = new ArrayList<>();
         listCartId = new ArrayList<>();
 
@@ -79,8 +78,7 @@ public class CartActivity extends AppCompatActivity {
         lv = findViewById(R.id.lv_cart);
         cbVnPay = findViewById(R.id.cb_vn_pay);
 
-        // uuid = FirebaseAuth.getInstance().getUid();
-        uuid = "odRaAE9UPaTaXh5qRyzsenb4oqv1";
+         uuid = FirebaseAuth.getInstance().getUid();
     }
 
     private void adapter() {
@@ -116,16 +114,13 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void startVNPay() throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-        String url = PaymentGateway.createPaymentUrl(total * 24500, "http://drawdemy");
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
+//        String url = PaymentGateway.createPaymentUrl(total * 24500, "http://drawdemy");
+//        Intent intent = new Intent();
+//        intent.setAction(Intent.ACTION_VIEW);
+//        intent.setData(Uri.parse(url));
+//        startActivity(intent);
 
-
-
-
-        //checkout();
+        checkout();
     }
 
     private void checkout() {

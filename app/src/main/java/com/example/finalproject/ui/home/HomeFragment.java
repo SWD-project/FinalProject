@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalproject.CartActivity;
 import com.example.finalproject.CourseDetailsActivity;
 import com.example.finalproject.adapter.CourseAdapter;
 import com.example.finalproject.constants.Category;
@@ -36,6 +38,12 @@ public class HomeFragment extends Fragment {
         setupRecyclerView(binding.rvFoundational, Category.FOUNDATIONAL);
         setupRecyclerView(binding.rvSpecialized, Category.SPECIALIZED);
         setupRecyclerView(binding.rvArtHistoryAndTheory, Category.ART_HISTORY_AND_THEORY);
+
+        Button buttonCart = binding.btnCart;
+        buttonCart.setOnClickListener(view -> {
+            Intent itent = new Intent(getContext(), CartActivity.class);
+            startActivity(itent);
+        });
 
         return root;
     }

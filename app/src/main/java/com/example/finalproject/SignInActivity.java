@@ -32,7 +32,7 @@ public class SignInActivity extends AppCompatActivity {
             var password = etPassword.getText().toString();
             mFirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignInActivity.this, HomeActivity.class));
                     finish();
                 } else {
                     Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
